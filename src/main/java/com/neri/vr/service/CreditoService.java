@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.neri.vr.controller.dto.Media;
+import com.neri.vr.controller.dto.Total;
 import com.neri.vr.model.Credito;
 import com.neri.vr.repository.CreditoRepository;
 
@@ -24,20 +26,24 @@ public class CreditoService {
 		return repository.findAll();
 	}
 	
-	public int getTotal(){
+	public Total getTotal(){
 		List<Credito> credito =repository.findAll();
 		credito.forEach(c ->{
 			total += c.getAmount();
 		});
-		return total;
+		return new Total(total);
 	}
 	
-	public int getMedia(){
+	public Media getMedia(){
 		List<Credito> credito =repository.findAll();
 		credito.forEach(c ->{
 			total += c.getAmount();
 		});
-		return total / credito.size();
+		return new Media(total / credito.size());
+	}
+	
+	public List<Credito> findByCreatedBy(String createdBy) {
+		return repository.findByCreatedBy(createdBy);
 	}
 	
 	
