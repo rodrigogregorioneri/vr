@@ -36,7 +36,7 @@ public class CreditoServiceTest {
 	@Autowired
 	private CreditoService creditoService;
 	
-	@Value("${payment-server.baseURI}")
+	@Value("${api.baseURI}")
 	private String baseURI;
 	
 	private ObjectMapper objectMapper = new ObjectMapper();
