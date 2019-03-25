@@ -4,15 +4,15 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(value = HttpStatus.NOT_FOUND, reason = "Credito não encontrado!")
-public class EventsNotFoundException extends RuntimeException{
+public class CreditNotFoundException extends RuntimeException{
 
 	private static final long serialVersionUID = 1L;
 
-	public EventsNotFoundException() {
+	public CreditNotFoundException() {
 		super();
 	}
 
-	public EventsNotFoundException(String message) {
+	public CreditNotFoundException(String message) {
 		super(message);
 	}
 	
