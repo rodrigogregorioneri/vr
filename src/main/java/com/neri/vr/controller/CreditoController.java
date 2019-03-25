@@ -24,8 +24,17 @@ public class CreditoController {
 	
 	@GetMapping
 	public List<Credito> list() {
-	
 		return creditoService.findAll();
+	}
+	
+	@GetMapping("/total")
+	public int getTotal() {
+		return creditoService.getTotal();
+	}
+	
+	@GetMapping("/media")
+	public int getMedia() {
+		return creditoService.getMedia();
 	}
 	
 	@PostMapping

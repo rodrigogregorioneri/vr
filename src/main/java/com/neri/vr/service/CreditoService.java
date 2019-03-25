@@ -11,6 +11,8 @@ import com.neri.vr.repository.CreditoRepository;
 @Service
 public class CreditoService {
 	
+	int total = 0;
+	
 	@Autowired
 	private CreditoRepository repository;
 	
@@ -20,6 +22,22 @@ public class CreditoService {
 	
 	public List<Credito> findAll() {
 		return repository.findAll();
+	}
+	
+	public int getTotal(){
+		List<Credito> credito =repository.findAll();
+		credito.forEach(c ->{
+			total += c.getAmount();
+		});
+		return total;
+	}
+	
+	public int getMedia(){
+		List<Credito> credito =repository.findAll();
+		credito.forEach(c ->{
+			total += c.getAmount();
+		});
+		return total / credito.size();
 	}
 	
 	
